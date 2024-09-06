@@ -27,29 +27,6 @@
             left: 20px;
             z-index: 1000;
         }
-        .color-box, .color-box2, .color-box3 {
-            width: 40px;
-            height: 20px;
-            background-color: #ff0000;
-            display: inline-block;
-            margin-right: 5px;
-            vertical-align: middle;
-            position: relative; /* Make the tooltip relative to the box */
-        }
-        .color-box:hover::after, .color-box2:hover::after, .color-box3:hover::after {
-            content: attr(data-info); /* Updated to show data-info attribute */
-            position: absolute;
-            left: 15px;
-            top: -10px; /* Adjust the position above the box */
-            padding: 2px 5px;
-            background-color: #333;
-            color: white;
-            border-radius: 3px;
-            white-space: nowrap;
-            z-index: 3000;
-            opacity: 1;
-            visibility: visible;
-        }
         body {
             margin: 0;
             padding: 0;
@@ -378,7 +355,7 @@
         var marker = L.marker([item.lat, item.lng], { icon: createCustomIcon(item.iconUrl) })
             .addTo(mymap);
         marker.on('click', function() {
-            window.open(item.url, '_blank');
+            window.location.href = item.url;
         });
     });
 
