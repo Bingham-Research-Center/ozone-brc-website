@@ -384,25 +384,25 @@
 
     // Label markers
     const labelData = [
-        { lat: 39.999976997359999 + 0.03, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
-        { lat: 40.25851914407591 - 0.02, lng: -109.23329380327 - 0.02, label: "Redwash", temperature: "76" },
-        { lat: 40.19888515000395 - 0.01, lng: -109.41500000327251, label: "Horsepool", temperature: "80" },
-        { lat: 40.15893234280617 - 0.025, lng: -109.59032863211046, label: "Ouray", temperature: "69" },
-        { lat: 40.020893207314736 + 0.07, lng: -109.9900009999999, label: "Castle Peak", temperature: "78" },
-        { lat: 40.1942047648221 + 0.04, lng: -109.97111111110557 - 0.01, label: "Myton", temperature: "80" },
-        { lat: 40.359 - 0.02, lng: -110.001 + 0.05, label: "Roosevelt", temperature: "75" },
-        { lat: 40.435841889466306 + 0.06, lng: -109.44860371131919, label: "Vernal", temperature: "78" },
-        { lat: 40.5174288270201 - 0.01, lng: -109.89099990325755, label: "Whiterocks", temperature: "80"},
-        { lat: 40.52735905088553 + 0.07, lng: -109.60535260325337, label: "Dry Fork", temperature: "78" },
-        { lat: 40.54304504106028 + 0.12, lng: -108.94873459248159 + 0.04, label: "Dinosaur National Monument", temperature: "75" },
-        { lat: 40.08722869423578 + 0.04, lng: -108.80395403150021 + 0.07, label: "Rangely", temperature: "78" },
+        { lat: 39.999976997359999 + 0.06, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
+        { lat: 40.25851914407591 + 0.04, lng: -109.23329380327 - 0.02, label: "Redwash", temperature: "76" },
+        { lat: 40.19888515000395 + 0.04, lng: -109.41500000327251, label: "Horsepool", temperature: "80" },
+        { lat: 40.15893234280617 + 0.02, lng: -109.59032863211046 - 0.02, label: "Ouray", temperature: "69" },
+        { lat: 40.020893207314736 + 0.09 + 0.03, lng: -109.9900009999999, label: "Castle Peak", temperature: "78" },
+        { lat: 40.1942047648221 + 0.09, lng: -109.97111111110557 - 0.03, label: "Myton", temperature: "80" },
+        { lat: 40.359 + 0.04, lng: -110.001 + 0.05, label: "Roosevelt", temperature: "75" },
+        { lat: 40.435841889466306 + 0.12, lng: -109.44860371131919, label: "Vernal", temperature: "78" },
+        { lat: 40.5174288270201 + 0.04, lng: -109.89099990325755, label: "Whiterocks", temperature: "80"},
+        { lat: 40.52735905088553 + 0.12, lng: -109.60535260325337, label: "Dry Fork", temperature: "78" },
+        { lat: 40.54304504106028 + 0.16, lng: -108.94873459248159 + 0.04, label: "Dinosaur National Monument", temperature: "75" },
+        { lat: 40.08722869423578 + 0.09, lng: -108.80395403150021 + 0.07, label: "Rangely", temperature: "78" },
     ];
 
     labelData.forEach(function(item) {
         L.marker([item.lat, item.lng], {
             icon: L.divIcon({
                 className: 'labelClass',
-                html: `<b>${item.label}</b><br><br>Temp: ${item.temperature}`,
+                html: `<b>${item.label}</b><br>Temp: ${item.temperature}`,
                 iconSize: [100, 40]
             }),
             zIndexOffset: 1000
