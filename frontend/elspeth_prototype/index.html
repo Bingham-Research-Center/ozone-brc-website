@@ -76,6 +76,24 @@
             height: auto; /* Maintain aspect ratio */
             margin: 0 auto 5px; /* Add margin for spacing, top and bottom auto for centering */
         }
+        .opaque-box {
+            position: fixed; /* Fixes the box relative to the viewport */
+            top: 40%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Offset the center point to properly center the box */
+            width: 500px;
+            height: 100px;
+            background-color: #FFFFFF;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00263A; /* White text */
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px; /* Rounded corners */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
     </style>
 </head>
 <div class="colored-bar"></div>
@@ -93,6 +111,11 @@
             <li><a href="https://www.usu.edu/binghamresearch/contact-us" target="_blank" class="tab"><img src="img/Contacticon.png" height="100" width="auto" alt="Contact Us"></a></li>
         </ul>
     </nav>
+</div>
+
+<div class="opaque-box">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <button>Read all updates</button>
 </div>
 
 </body>
