@@ -76,7 +76,8 @@
             height: auto; /* Maintain aspect ratio */
             margin: 0 auto 5px; /* Add margin for spacing, top and bottom auto for centering */
         }
-        .opaque-box {
+
+        .post {
             position: fixed; /* Fixes the box relative to the viewport */
             top: 40%; /* Center vertically */
             left: 50%; /* Center horizontally */
@@ -113,10 +114,33 @@
     </nav>
 </div>
 
-<div class="opaque-box">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    <button>Read all updates</button>
+<div class="post">
+    <h1 id="post-title">Loading...</h1>
+    <p id="post-content">Please wait while we fetch the latest post.</p>
 </div>
+
+<script>
+    async function fetchLatestPost() {
+        try {
+            const response = await fetch('blog.html');
+            const posts = await response.json();
+
+            // Sort posts by date in descending order and get the latest one
+            const latestPost = posts.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+
+            // Display the latest post
+            document.getElementById('post-title').textContent = latestPost.title;
+            document.getElementById('post-content').textContent = latestPost.content;
+        } catch (error) {
+            console.error('Error fetching the latest post:', error);
+            document.getElementById('post-title').textContent = 'Error';
+            document.getElementById('post-content').textContent = 'Unable to fetch the latest post.';
+        }
+    }
+
+    // Fetch and display the latest post on page load
+    fetchLatestPost();
+</script>
 
 </body>
 </html>
