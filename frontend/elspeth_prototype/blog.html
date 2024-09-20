@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+<!-- Container for the latest post -->
+<div id="latest-post"></div>
+
+<!-- Load posts.js first -->
+<script src="posts.js"></script>
+
+<!-- Then load the script that uses `posts` -->
+<script>
+    function displayAllPosts() {
+        const postsContainer = document.getElementById('latest-post');
+
+        // Check if `posts` is defined
+        if (typeof posts === 'undefined') {
+            console.error('Posts array is not defined.');
+            return;
+        }
+
+        posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p>${post.content}</p>
+                    <small>${post.date}</small>
+                `;
+            postsContainer.appendChild(postElement);
+        });
+    }
+
+    // Ensure the DOM is fully loaded before running the function
+    document.addEventListener('DOMContentLoaded', displayAllPosts);
+</script>
+</body>
+</html>

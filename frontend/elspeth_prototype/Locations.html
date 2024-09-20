@@ -387,7 +387,8 @@
     });
 
     window.onload = function() {
-        document.getElementById('toggle-button').addEventListener('click', function() {
+        var button = document.getElementById('toggle-button');
+        button.addEventListener('click', function() {
             var overlay = document.getElementById('image-overlay');
             overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
         });
@@ -411,7 +412,7 @@
             <img src="img/homeicon.png" alt="Home Page Button">
         </a>
         <a href="https://www.usu.edu/binghamresearch/directory/" target="_blank">
-            <img src="img/OurTeamFinal.png" alt="Our team button">
+            <img src="img/OURTEAM.png" alt="Our team button">
         </a>
         <a href="http://ubair.usu.edu/Cams2/index.html" target="_blank">
             <img src="img/webcamicon.png" alt="Webcams Button">
