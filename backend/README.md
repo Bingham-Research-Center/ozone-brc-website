@@ -18,3 +18,6 @@ Seth/Trevor meeting:
 
 ### Webcams 
 - Seth has Python for this 
+
+### Python requirements
+For back-end stuff, we are using the same Python 3.11 conda-forge environment (`clyfar` env) as the `clyfar` package.
