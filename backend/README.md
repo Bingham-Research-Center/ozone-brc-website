@@ -21,3 +21,19 @@ Seth/Trevor meeting:
 
 ### Python requirements
 For back-end stuff, we are using the same Python 3.11 conda-forge environment (`clyfar` env) as the `clyfar` package.
+
+#### Summary table of data sources per station name
+| Station Name | Data Source                  |
+|--------------|------------------------------|
+| Dinosaur National Monument | Synoptic Weather             |
+| Red Wash | Synoptic Weather             |
+| Rangely | Colowhiteriverairquality.net |
+| Seven Sisters | Campbell Scientific          |
+| Horsepool | Campbell Scientific          |
+| Ouray | Synoptic Weather             |
+| Vernal | Synoptic Weather             |
+| Dry Fork | Weather Underground          |
+| Whiterocks | Synoptic Weather             |
+| Roosevelt | Synoptic Weather (?)         |
+| Myton | Synoptic Weather             |
+| Castle Peak | Campbell Scientific          |
