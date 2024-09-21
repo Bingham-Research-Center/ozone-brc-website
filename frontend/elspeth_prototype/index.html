@@ -76,6 +76,25 @@
             height: auto; /* Maintain aspect ratio */
             margin: 0 auto 5px; /* Add margin for spacing, top and bottom auto for centering */
         }
+
+        .post {
+            position: fixed; /* Fixes the box relative to the viewport */
+            top: 40%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Offset the center point to properly center the box */
+            width: 500px;
+            height: 100px;
+            background-color: #FFFFFF;
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00263A; /* White text */
+            font-size: 18px;
+            text-align: center;
+            border-radius: 10px; /* Rounded corners */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
     </style>
 </head>
 <div class="colored-bar"></div>
@@ -87,13 +106,60 @@
     <nav class="navigation">
         <ul>
             <li><a href="Locations.html" target="_blank" class="tab"><img src="img/locationsicon.png" height="150" width="auto" alt="Locations"></a></li>
-            <li><a href="https://www.usu.edu/binghamresearch/directory/" target="_blank"  class="tab"><img src="img/OurTeamFinal.png" height="150" width="auto" alt="FAQ"></a></li>
+            <li><a href="https://www.usu.edu/binghamresearch/directory/" target="_blank"  class="tab"><img src="img/OURTEAM.png" height="150" width="auto" alt="FAQ"></a></li>
             <li><a href="http://ubair.usu.edu/Cams2/index.html" target="_blank" class="tab"><img src="img/webcamicon.png" height="150" width="auto" alt="Webcams"></a></li>
             <li><a href="file:///Users/airquality/WebstormProjects/webpage/Forecasts.html" target="_blank" class="tab"><img src="img/clockforecast.png" height="125" width="auto" alt="forecast"></a></li>
             <li><a href="https://www.usu.edu/binghamresearch/contact-us" target="_blank" class="tab"><img src="img/Contacticon.png" height="100" width="auto" alt="Contact Us"></a></li>
         </ul>
     </nav>
 </div>
+
+<div class="post">
+    <h1 id="post-title">Loading...</h1>
+    <p id="post-content">Please wait while we fetch the latest post.</p>
+</div>
+
+<script>
+    function fetchLatestPost() {
+        try {
+            // Define the posts data directly in the code
+            const posts = [
+                {
+                    "id": 1,
+                    "title": "First Blog Post",
+                    "date": "2024-08-01",
+                    "content": "This is the first blog post."
+                },
+                {
+                    "id": 2,
+                    "title": "Second Blog Post",
+                    "date": "2024-09-01",
+                    "content": "This is the second blog post."
+                },
+                {
+                    "id": 3,
+                    "date": "2024-09-10",
+                    "content": "This is the latest blog post. 2"
+                }
+            ];
+
+            // Sort posts by date in descending order and get the latest one
+            const latestPost = posts.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+
+            // Display the latest post
+            document.getElementById('post-title').textContent = latestPost.title;
+            document.getElementById('post-content').textContent = latestPost.content;
+        } catch (error) {
+            console.error('Error fetching the latest post:', error);
+            document.getElementById('post-title').textContent = 'Error';
+            document.getElementById('post-content').textContent = 'Unable to fetch the latest post.';
+        }
+    }
+
+    // Fetch and display the latest post on page load
+    fetchLatestPost();
+</script>
+
 
 </body>
 </html>

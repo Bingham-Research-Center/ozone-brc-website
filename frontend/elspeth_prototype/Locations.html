@@ -27,29 +27,6 @@
             left: 20px;
             z-index: 1000;
         }
-        .color-box, .color-box2, .color-box3 {
-            width: 40px;
-            height: 20px;
-            background-color: #ff0000;
-            display: inline-block;
-            margin-right: 5px;
-            vertical-align: middle;
-            position: relative; /* Make the tooltip relative to the box */
-        }
-        .color-box:hover::after, .color-box2:hover::after, .color-box3:hover::after {
-            content: attr(data-info); /* Updated to show data-info attribute */
-            position: absolute;
-            left: 15px;
-            top: -10px; /* Adjust the position above the box */
-            padding: 2px 5px;
-            background-color: #333;
-            color: white;
-            border-radius: 3px;
-            white-space: nowrap;
-            z-index: 3000;
-            opacity: 1;
-            visibility: visible;
-        }
         body {
             margin: 0;
             padding: 0;
@@ -368,7 +345,7 @@
         { lat: 40.051, lng: -110.019, iconUrl: iconUrl6, url: 'Castle%20Peak.html' },
         { lat: 40.08906372965449, lng: -109.67731793527837, iconUrl: iconUrl7, url: 'ouray.html' },
         { lat: 40.143, lng: -109.469, iconUrl: iconUrl8, url: 'Horsepool.html' },
-        { lat: 40.19863392544069, lng: -109.30929375439119, iconUrl: iconUrl9, url: 'redwash.html' },
+        { lat: 40.19863392544069, lng: -109.30929375439119 + 0.05, iconUrl: iconUrl9, url: 'redwash.html' },
         { lat: 40.08722869423578, lng: -108.80395403150021, iconUrl: iconUrl10, url: 'Rangely.html' },
         { lat: 39.983, lng: -109.344, iconUrl: iconUrl11, url: 'Seven%20Sisters.html' },
         { lat: 40.54304504106028, lng: -108.94873459248159, iconUrl: iconUrl12, url: 'Dinosaur%20National%20Monument.html' }
@@ -378,31 +355,31 @@
         var marker = L.marker([item.lat, item.lng], { icon: createCustomIcon(item.iconUrl) })
             .addTo(mymap);
         marker.on('click', function() {
-            window.open(item.url, '_blank');
+            window.location.href = item.url;
         });
     });
 
     // Label markers
     const labelData = [
-        { lat: 39.999976997359999 + 0.03, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
-        { lat: 40.25851914407591 - 0.02, lng: -109.23329380327 - 0.02, label: "Redwash", temperature: "76" },
-        { lat: 40.19888515000395 - 0.01, lng: -109.41500000327251, label: "Horsepool", temperature: "80" },
-        { lat: 40.15893234280617 - 0.025, lng: -109.59032863211046, label: "Ouray", temperature: "69" },
-        { lat: 40.020893207314736 + 0.07, lng: -109.9900009999999, label: "Castle Peak", temperature: "78" },
-        { lat: 40.1942047648221 + 0.04, lng: -109.97111111110557 - 0.01, label: "Myton", temperature: "80" },
-        { lat: 40.359 - 0.02, lng: -110.001 + 0.05, label: "Roosevelt", temperature: "75" },
-        { lat: 40.435841889466306 + 0.06, lng: -109.44860371131919, label: "Vernal", temperature: "78" },
-        { lat: 40.5174288270201 - 0.01, lng: -109.89099990325755, label: "Whiterocks", temperature: "80"},
-        { lat: 40.52735905088553 + 0.07, lng: -109.60535260325337, label: "Dry Fork", temperature: "78" },
-        { lat: 40.54304504106028 + 0.12, lng: -108.94873459248159 + 0.04, label: "Dinosaur National Monument", temperature: "75" },
-        { lat: 40.08722869423578 + 0.04, lng: -108.80395403150021 + 0.07, label: "Rangely", temperature: "78" },
+        { lat: 39.999976997359999 + 0.06, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
+        { lat: 40.25851914407591 + 0.04, lng: -109.23329380327 +0.03, label: "Redwash", temperature: "76" },
+        { lat: 40.19888515000395 + 0.04, lng: -109.41500000327251, label: "Horsepool", temperature: "80" },
+        { lat: 40.15893234280617 + 0.02, lng: -109.59032863211046 - 0.02, label: "Ouray", temperature: "69" },
+        { lat: 40.020893207314736 + 0.09 + 0.03, lng: -109.9900009999999, label: "Castle Peak", temperature: "78" },
+        { lat: 40.1942047648221 + 0.09, lng: -109.97111111110557 - 0.03, label: "Myton", temperature: "80" },
+        { lat: 40.359 + 0.04, lng: -110.001 + 0.05, label: "Roosevelt", temperature: "75" },
+        { lat: 40.435841889466306 + 0.12, lng: -109.44860371131919, label: "Vernal", temperature: "78" },
+        { lat: 40.5174288270201 + 0.04, lng: -109.89099990325755, label: "Whiterocks", temperature: "80"},
+        { lat: 40.52735905088553 + 0.12, lng: -109.60535260325337, label: "Dry Fork", temperature: "78" },
+        { lat: 40.54304504106028 + 0.16, lng: -108.94873459248159 + 0.04, label: "Dinosaur National Monument", temperature: "75" },
+        { lat: 40.08722869423578 + 0.09, lng: -108.80395403150021 + 0.07, label: "Rangely", temperature: "78" },
     ];
 
     labelData.forEach(function(item) {
         L.marker([item.lat, item.lng], {
             icon: L.divIcon({
                 className: 'labelClass',
-                html: `<b>${item.label}</b><br><br>Temp: ${item.temperature}`,
+                html: `<b>${item.label}</b><br>Temp: ${item.temperature}`,
                 iconSize: [100, 40]
             }),
             zIndexOffset: 1000
@@ -426,7 +403,7 @@
 
 <button id="toggle-button">Study Area</button>
 <img id="image-overlay" src="img/utah.png" height="250" width="auto" alt="Study Area">
-<img id="image-overlay1" src="img/ozone-graphONLY.png" height="350" width="auto" alt="Measurement">
+<img id="image-overlay1" src="img/ozone-graphOZONE2.png" height="350" width="auto" alt="Measurement">
 
 <div class="sidebar_container">
     <div class="sidebar">
