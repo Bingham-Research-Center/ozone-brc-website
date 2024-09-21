@@ -25,7 +25,7 @@ import datetime
 import time
 import logging
 
-# Define webcam configurations with lowercase names and underscores find code for webcams on teams in Website files.
+# Define webcam configurations find code for webcams on teams in Website files.
 webcams = {
     'horsepool': '',
     'roosevelt': '',
@@ -47,7 +47,7 @@ for name in webcams.keys():
     os.makedirs(os.path.join(save_directory, name), exist_ok=True)  # Save directory for each webcam
     os.makedirs(os.path.join(archive_directory, f"{name}_webcam"), exist_ok=True)  # Archive directory for each webcam
 
-# Set up logging with lowercase filename
+# Set up logging
 log_file = os.path.join(save_directory, 'webcams.log')
 logging.basicConfig(filename=log_file, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
