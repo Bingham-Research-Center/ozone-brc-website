@@ -12,7 +12,7 @@ window.posts = [
     },
     {
         title: 'Forecasts:',
-        content: 'The forecast...',
+        content: 'The forecast for the next week is sunny with a chance of rain.',
         date: '2022-01-03'
     }
     // Add more posts as needed
