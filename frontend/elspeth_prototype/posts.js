@@ -1,19 +1,19 @@
 // Ensure `posts` is attached to the window object for global access
 window.posts = [
     {
-        title: 'Post 1',
+        title: 'Forecasts:',
         content: 'This is the content of the first post.',
-        date: '2022-01-01'
+        date: 'September 24, 2024'
     },
     {
-        title: 'Post 2',
+        title: 'Forecasts:',
         content: 'This is the content of the second post.',
-        date: '2022-01-02'
+        date: 'September 25, 2024'
     },
     {
         title: 'Forecasts:',
         content: 'The forecast for the next week is sunny with a chance of rain.',
-        date: '2022-01-03'
+        date: 'September 3, 2024'
     }
     // Add more posts as needed
 ];
