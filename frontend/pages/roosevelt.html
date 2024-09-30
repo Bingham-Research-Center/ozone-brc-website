@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redwash</title>
+    <title>Roosevelt</title>
     <style>
 
         body {
-            background-image: url('img/redwash1.png');
+            background-image: url('../assets/images/ROOSEVELT.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -24,7 +24,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
-            margin-top: 18px;
+            margin-top: 10px;
             top: 115px;
             left: 275px;
             z-index: 2; /* Higher z-index */
@@ -34,6 +34,22 @@
         }
         .rounded-button:hover {
             background-color: gray;
+        }
+        .button {
+            display: block;
+            color: black;
+            background-color: deepskyblue;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            top: 115px;
+            left: 275px;
+            z-index: 2; /* Higher z-index */
+            position: relative; /* Add this to make z-index work */
+            height: 50px;
+            width: 200px;
         }
         .box {
             background-color: white;
@@ -51,7 +67,9 @@
             display: block;
         }
     </style>
+
 <body>
+<button class="button">Webcam</button>
 <button class="rounded-button">Air Temperature</button>
 <button class="rounded-button">Relative Humidity</button>
 <button class="rounded-button">Wind Speed</button>
@@ -67,7 +85,6 @@
 </div>
 
 <button onclick="window.location.href='Locations.html'" style="position: absolute; top: 0; left: 0;">Back to Map</button>
-
 
 </body>
 </html>
