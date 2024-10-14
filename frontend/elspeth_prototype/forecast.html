@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .forecast { margin: 20px 0; }
+    </style>
 </head>
 <body>
-<!-- Container for the latest post -->
-<div id="latest-post"></div>
 
-<!-- Load posts.js first -->
-<script src="posts.js"></script>
+<h1>Weekly Weather Forecast</h1>
+<div id="forecast" class="forecast"></div>
 
-<!-- Then load the script that uses `posts` -->
 <script>
-    function displayAllPosts() {
-        const postsContainer = document.getElementById('latest-post');
-
-        // Check if `posts` is defined
-        if (typeof posts === 'undefined') {
-            console.error('Posts array is not defined.');
-            return;
+    // Function to load the forecast from the text file
+    async function loadForecast() {
+        try {
+            const response = await fetch('Test%20File.txt');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.text();
+            document.getElementById('forecast').textContent = data;
+        } catch (error) {
+            console.error('Error fetching the forecast:', error);
+            document.getElementById('forecast').textContent = 'Error loading forecast.';
         }
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.innerHTML = `
-                    <h2>${post.title}</h2>
-                    <p>${post.content}</p>
-                    <small>${post.date}</small>
-                `;
-            postsContainer.appendChild(postElement);
-        });
     }
 
-    // Ensure the DOM is fully loaded before running the function
-    document.addEventListener('DOMContentLoaded', displayAllPosts);
+    // Load forecast when the page is loaded
+    window.onload = loadForecast;
 </script>
+
 </body>
 </html>
