@@ -5,21 +5,22 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Serve static files from the current directory
-app.use(express.static(__dirname));
+// Serve static files from the "TEXTFILES" directory
+app.use(express.static(path.join(__dirname, 'TEXTFILES')));
 
-// Endpoint to list text files
+// Endpoint to get the list of text files
 app.get('/files', (req, res) => {
-    fs.readdir(__dirname, (err, files) => {
-        if (err) return res.status(500).send('Unable to scan directory: ' + err);
+    const dirPath = path.join(__dirname, 'TEXTFILES');
 
-        // Filter for .txt files
-        const txtFiles = files.filter(file => path.extname(file) === '.txt');
-        res.json(txtFiles);
+    fs.readdir(dirPath, (err, files) => {
+        if (err) {
+            return res.status(500).send('Error reading directory');
+        }
+        const textFiles = files.filter(file => file.endsWith('.txt'));
+        res.json(textFiles);
     });
 });
 
-// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
