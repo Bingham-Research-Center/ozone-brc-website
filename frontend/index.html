@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uintah Basin Air Quality</title>
+
+    <!-- Third-party CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="public/images/images-removebg-preview.png" alt="Logo">
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a href="#map-section">
+                    <img src="public/images/locationsicon.png" alt="Locations">
+                    <span>Locations</span>
+                </a>
+            </li>
+            <li>
+                <a href="#forecast-section">
+                    <img src="public/images/clockforecast.png" alt="Forecast">
+                    <span>Forecast</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ubair.usu.edu/Cams2/index.html" target="_blank">
+                    <img src="public/images/webcamicon.png" alt="Webcams">
+                    <span>Webcams</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.usu.edu/binghamresearch/contact-us" target="_blank">
+                    <img src="public/images/Contacticon.png" alt="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="map-section">
+        <h2>Current Conditions</h2>
+        <div id="map"></div>
+        <div id="map-legend"></div>
+    </section>
+
+    <section id="forecast-section">
+        <h2>Latest Forecast</h2>
+        <div id="latest-forecast"></div>
+        <canvas id="forecast-chart"></canvas>
+        <a href="pages/archive.html" class="archive-link">View Forecast Archive</a>
+    </section>
+</main>
+
+<footer>
+    <p>DISCLAIMER: Real-time data are preliminary and have yet to undergo quality control.
+        Some data are obtained in cooperation with other agencies, including the Ute Indian Tribe
+        and the Utah Department of Environmental Quality. ©2024, Utah State University.</p>
+</footer>
+
+<!-- Third-party libraries -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+<!-- Our JavaScript -->
+<script src="js/data.js"></script>
+<script src="js/map.js"></script>
+<script src="js/forecast.js"></script>
+</body>
+</html>

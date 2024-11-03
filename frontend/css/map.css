@@ -1,0 +1,58 @@
+#map {
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+#map-legend {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.station-popup {
+    padding: 10px;
+}
+
+.station-popup h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.station-popup table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.station-popup td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.station-popup td:first-child {
+    font-weight: bold;
+}
+
+/* Air quality indicators */
+.quality-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.quality-good { background-color: #00e400; }
+.quality-moderate { background-color: #ffff00; }
+.quality-unhealthy-sensitive { background-color: #ff7e00; }
+.quality-unhealthy { background-color: #ff0000; }
+.quality-very-unhealthy { background-color: #99004c; }
+.quality-hazardous { background-color: #7e0023; }
+
+@media (max-width: 768px) {
+    #map {
+        height: 300px;
+    }
+}
