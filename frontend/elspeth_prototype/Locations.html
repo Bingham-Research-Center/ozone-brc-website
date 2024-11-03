@@ -117,22 +117,22 @@
     }).addTo(mymap);
 
     // Define and calculate the ozone variable for Whiterocks
-    var ozoneinwhiterocks = 30; // replace with the actual value or a function that returns the value
+    var ozoneinwhiterocks = 100; // replace with the actual value or a function that returns the value
 
     // Determine the iconUrl based on the ozone value
     var iconUrl;
     if (ozoneinwhiterocks < 54) {
-        iconUrl = 'img/GOOD.png';
+        iconUrl = 'img/good.png';
     } else if (ozoneinwhiterocks > 55 && ozoneinwhiterocks <= 70) {
-        iconUrl = 'img/MODERATE.png';
+        iconUrl = 'img/moderate.png';
     } else if (ozoneinwhiterocks >= 71 && ozoneinwhiterocks <= 85) {
-        iconUrl = 'img/UNHEALTHYfsg.png';
+        iconUrl = 'img/unhealthyfsg.png';
     } else if (ozoneinwhiterocks >= 86 && ozoneinwhiterocks <= 105) {
-        iconUrl = 'img/UNHEALTHY.png';
+        iconUrl = 'img/unhealthy.png';
     } else if (ozoneinwhiterocks >= 106 && ozoneinwhiterocks <= 200) {
-        iconUrl = 'img/VERYUNHEALTHY.png';
+        iconUrl = 'img/veryunhealthy.png';
     } else {
-        iconUrl = 'img/HAZARDOUS.png';
+        iconUrl = 'img/hazardous.png';
     }
 
 
@@ -190,7 +190,7 @@
         iconUrl4 = 'img/HAZARDOUS.png';
     }
 
-    var ozoneinmyton = 30; // replace with the actual value or a function that returns the value
+    var ozoneinmyton = 60; // replace with the actual value or a function that returns the value
 
     // Determine the iconUrl based on the ozone value
     var iconUrl5;
@@ -361,7 +361,7 @@
 
     // Label markers
     const labelData = [
-        { lat: 39.999976997359999 + 0.06, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
+        { lat: 39.999976997359999 + 0.08, lng: -109.30399271356021, label: "Seven Sisters", temperature: "75"},
         { lat: 40.25851914407591 + 0.04, lng: -109.23329380327 +0.03, label: "Redwash", temperature: "76" },
         { lat: 40.19888515000395 + 0.04, lng: -109.41500000327251, label: "Horsepool", temperature: "80" },
         { lat: 40.15893234280617 + 0.02, lng: -109.59032863211046 - 0.02, label: "Ouray", temperature: "69" },

@@ -15,23 +15,26 @@
 <div id="forecast" class="forecast"></div>
 
 <script>
-    // Function to load the forecast from the text file
-    async function loadForecast() {
+    async function loadForecasts() {
         try {
-            const response = await fetch('Test%20File.txt');
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            const response = await fetch('/files');
+            const files = await response.json();
+            const forecastDiv = document.getElementById('forecast');
+
+            for (const file of files) {
+                const fileResponse = await fetch(`/${file}`);
+                const fileContent = await fileResponse.text();
+                const forecastItem = document.createElement('div');
+                forecastItem.textContent = fileContent;
+                forecastDiv.appendChild(forecastItem);
             }
-            const data = await response.text();
-            document.getElementById('forecast').textContent = data;
         } catch (error) {
-            console.error('Error fetching the forecast:', error);
-            document.getElementById('forecast').textContent = 'Error loading forecast.';
+            console.error('Error loading forecasts:', error);
+            document.getElementById('forecast').textContent = 'Error loading forecasts...';
         }
     }
 
-    // Load forecast when the page is loaded
-    window.onload = loadForecast;
+    window.onload = loadForecasts;
 </script>
 
 </body>
